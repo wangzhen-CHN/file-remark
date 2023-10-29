@@ -9,7 +9,6 @@ import {
   workspace
 } from "vscode";
 import { RecordConfig } from "./typings/common.typing";
-import { getCommonConfig } from "./utils/config.util";
 
 // @ts-ignore
 FileDecoration.validate = (d: FileDecoration): void => {
@@ -56,7 +55,6 @@ export class FileAlias {
   }
 
   public setConfig() {
-    const config = getCommonConfig(this._uri.fsPath);
     const privateConfigPath = path.resolve(
       this._uri.fsPath,
       "folder-alias.json"
@@ -66,7 +64,7 @@ export class FileAlias {
       const privateConfig = JSON.parse(
         readFileSync(privateConfigPath).toString()
       );
-      this.config = Object.assign(config, privateConfig);
+      this.config = Object.assign({}, privateConfig);
     }
   }
 

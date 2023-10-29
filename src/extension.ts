@@ -2,7 +2,6 @@ import * as fs from "fs";
 import { addAlias, addTooltip, delAlias } from "./command";
 import path = require("path");
 import { ExtensionContext, workspace } from "vscode";
-import "./template/data.json";
 import { FileAlias } from "./file-alias";
 import { writeConfig } from "./utils/file.util";
 

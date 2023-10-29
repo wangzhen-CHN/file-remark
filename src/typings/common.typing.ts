@@ -11,7 +11,3 @@ export interface ConfigItem {
 
 export type RecordConfig = Record<string, ConfigItem>;
 
-export interface TemplateFile {
-  level: number;
-  config: RecordConfig;
-}

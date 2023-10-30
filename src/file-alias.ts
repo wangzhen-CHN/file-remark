@@ -29,10 +29,7 @@ export class FileAlias {
     // console.log(uri.fsPath);
     const file = uri.toString().replace(this._uri.toString() + "/", "");
     if (this.config[file]) {
-      return new FileDecoration(
-        this.config[file].description,
-        this.config[file].tooltip
-      );
+      return new FileDecoration(this.config[file].description);
     }
   }
 

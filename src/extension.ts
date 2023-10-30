@@ -1,12 +1,11 @@
 import * as fs from "fs";
-import { addAlias, addTooltip, delAlias } from "./command";
+import { addAlias, delAlias } from "./command";
 import path = require("path");
 import { ExtensionContext, workspace } from "vscode";
 import { FileAlias } from "./file-alias";
 import { writeConfig } from "./utils/file.util";
 
 export async function activate(context: ExtensionContext) {
-  console.log("🏳️‍🌈 <输出> context", context);
   if (!workspace.workspaceFolders) {
     return;
   }
@@ -21,7 +20,6 @@ export async function activate(context: ExtensionContext) {
       writeConfig(configPath, {});
     }
     context.subscriptions.push(addAlias(ws, fileAlias));
-    // context.subscriptions.push(addTooltip(ws, fileAlias));
-    // context.subscriptions.push(delAlias(ws, fileAlias));
+    context.subscriptions.push(delAlias(ws, fileAlias));
   }
 }

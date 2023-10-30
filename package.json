@@ -14,10 +14,34 @@
   "contributes": {
     "commands": [
       {
-        "command": "file-remark-vscode.helloWorld",
-        "title": "Hello World"
+        "command": "folder-alias.addAlias",
+        "title": "添加备注",
+        "icon": {
+          "light": "media/light/edit.svg",
+          "dark": "media/dark/edit.svg"
+        }
+      },
+      {
+        "command": "folder-alias.delAlias",
+        "title": "删除备注",
+        "icon": {
+          "light": "media/light/edit.svg",
+          "dark": "media/dark/edit.svg"
+        }
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "folder-alias.addAlias",
+          "group": "1_modification"
+        },
+        {
+          "command": "folder-alias.delAlias",
+          "group": "1_modification"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",

@@ -13,27 +13,27 @@
   "main": "./out/extension.js",
   "license": "GPLV3",
   "publisher": "Wang Zhen",
-  "repository": "https://github.com/wangzhen-CHN/folder-alias",
+  "repository": "https://github.com/wangzhen-CHN/file-remark",
   "icon": "icon.png",
   "contributes": {
     "commands": [
       {
-        "command": "folder-alias.addAlias",
-        "title": "添加备注(ADD)"
+        "command": "file-remark.addRemark",
+        "title": "添加备注 (ADD)"
       },
       {
-        "command": "folder-alias.delAlias",
-        "title": "删除备注(DELETE)"
+        "command": "file-remark.deleteRemark",
+        "title": "删除备注 (DELETE)"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "folder-alias.addAlias",
+          "command": "file-remark.addRemark",
           "group": "1_modification"
         },
         {
-          "command": "folder-alias.delAlias",
+          "command": "file-remark.deleteRemark",
           "group": "1_modification"
         }
       ]

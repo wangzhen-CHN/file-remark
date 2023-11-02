@@ -5,18 +5,18 @@ import { FileAlias } from "../file-alias";
 import { RecordConfig } from "../typings/common.typing";
 import { readConfig, writeConfig } from "../utils/file.util";
 
-const addAlias = (
+const addRemark = (
   workspace: vscode.WorkspaceFolder,
   fileAlias: FileAlias
 ): vscode.Disposable => {
-  const configPath = path.join(workspace.uri.fsPath, "folder-alias.json");
+  const configPath = path.join(workspace.uri.fsPath, "file-remark.json");
   if (!existsSync(configPath)) {
     throw new Error("不存在配置");
   }
 
   const privateConfigPath = path.resolve(
     workspace.uri.fsPath,
-    "folder-alias.json"
+    "file-remark.json"
   );
   const originConfig = readConfig(configPath);
   const commonConfig = existsSync(privateConfigPath)
@@ -25,12 +25,12 @@ const addAlias = (
   const configFile: RecordConfig = { ...commonConfig, ...originConfig };
 
   return vscode.commands.registerCommand(
-    "folder-alias.addAlias",
+    "file-remark.addRemark",
     (uri: vscode.Uri) => {
       const relativelyPath = uri.path.substring(workspace.uri.path.length + 1);
       const filename = path.basename(configPath);
       const inputConfig: vscode.InputBoxOptions = {
-        title: "Input Your Alias",
+        title: "Add Remark",
         value: configFile[relativelyPath]
           ? configFile[relativelyPath].description
           : filename
@@ -50,4 +50,4 @@ const addAlias = (
   );
 };
 
-export { addAlias };
+export { addRemark };

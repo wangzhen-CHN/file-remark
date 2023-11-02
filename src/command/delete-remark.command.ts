@@ -3,11 +3,11 @@ import * as path from "path";
 import * as vscode from "vscode";
 import { FileAlias } from "../file-alias";
 import { readConfig, writeConfig } from "../utils/file.util";
-const delAlias = (
+const deleteRemark = (
   workspace: vscode.WorkspaceFolder,
   fileAlias: FileAlias
 ): vscode.Disposable => {
-  const configPath = path.join(workspace.uri.fsPath, "folder-alias.json");
+  const configPath = path.join(workspace.uri.fsPath, "file-remark.json");
   if (!existsSync(configPath)) {
     throw new Error("不存在配置");
   }
@@ -15,7 +15,7 @@ const delAlias = (
   const originConfig = readConfig(configPath);
 
   return vscode.commands.registerCommand(
-    "folder-alias.delAlias",
+    "file-remark.deleteRemark",
     (uri: vscode.Uri) => {
       const relativelyPath = uri.path.substring(workspace.uri.path.length + 1);
       console.log({ originConfig: originConfig[relativelyPath] });
@@ -31,4 +31,4 @@ const delAlias = (
   );
 };
 
-export { delAlias };
+export { deleteRemark };

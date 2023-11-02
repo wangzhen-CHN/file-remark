@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import { addAlias, delAlias } from "./command";
+import { addRemark, deleteRemark } from "./command";
 import path = require("path");
 import { ExtensionContext, workspace } from "vscode";
 import { FileAlias } from "./file-alias";
@@ -15,11 +15,11 @@ export async function activate(context: ExtensionContext) {
     let fileAlias = new FileAlias(ws.uri);
     await fileAlias.initWorkSpace();
     const workspaceDir: string = ws.uri.fsPath;
-    const configPath = path.join(workspaceDir, "folder-alias.json");
+    const configPath = path.join(workspaceDir, "file-remark.json");
     if (!fs.existsSync(configPath)) {
       writeConfig(configPath, {});
     }
-    context.subscriptions.push(addAlias(ws, fileAlias));
-    context.subscriptions.push(delAlias(ws, fileAlias));
+    context.subscriptions.push(addRemark(ws, fileAlias));
+    context.subscriptions.push(deleteRemark(ws, fileAlias));
   }
 }

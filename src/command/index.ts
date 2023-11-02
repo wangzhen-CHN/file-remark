@@ -1,2 +1,2 @@
-export { addAlias } from "./add-alias.command";
-export { delAlias } from "./delete-alias.command";
+export { addRemark } from "./add-remark.command";
+export { deleteRemark } from "./delete-remark.command";

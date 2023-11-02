@@ -34,7 +34,7 @@ export class FileAlias {
   }
 
   private fileChange(uri: Uri) {
-    if (uri.fsPath.endsWith("folder-alias.json")) {
+    if (uri.fsPath.endsWith("file-remark.json")) {
       this.setConfig();
     }
   }
@@ -54,7 +54,7 @@ export class FileAlias {
   public setConfig() {
     const privateConfigPath = path.resolve(
       this._uri.fsPath,
-      "folder-alias.json"
+      "file-remark.json"
     );
 
     if (existsSync(privateConfigPath)) {

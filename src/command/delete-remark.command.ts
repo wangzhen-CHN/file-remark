@@ -7,7 +7,7 @@ const deleteRemark = (
   workspace: vscode.WorkspaceFolder,
   fileAlias: FileAlias
 ): vscode.Disposable => {
-  const configPath = path.join(workspace.uri.fsPath, "file-remark.json");
+  const configPath = path.join(workspace.uri.fsPath, ".vscode/file-remark.json");
   if (!existsSync(configPath)) {
     throw new Error("不存在配置");
   }

@@ -15,7 +15,7 @@ export async function activate(context: ExtensionContext) {
     let fileAlias = new FileAlias(ws.uri);
     await fileAlias.initWorkSpace();
     const workspaceDir: string = ws.uri.fsPath;
-    const configPath = path.join(workspaceDir, "file-remark.json");
+    const configPath = path.join(workspaceDir, ".vscode/file-remark.json");
     if (!fs.existsSync(configPath)) {
       writeConfig(configPath, {});
     }

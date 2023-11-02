@@ -1,8 +1,8 @@
 {
-  "name": "file-remark-vscode",
-  "displayName": "file-remark-vscode",
-  "description": "文件或文件夹备注插件",
-  "version": "0.0.1",
+  "name": "file-remark",
+  "displayName": "File Remark",
+  "description": "Remark on files&folders",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -11,23 +11,19 @@
   ],
   "activationEvents": ["onStartupFinished"],
   "main": "./out/extension.js",
+  "license": "GPLV3",
+  "publisher": "Wang Zhen",
+  "repository": "https://github.com/wangzhen-CHN/folder-alias",
+  "icon": "icon.png",
   "contributes": {
     "commands": [
       {
         "command": "folder-alias.addAlias",
-        "title": "添加备注",
-        "icon": {
-          "light": "media/light/edit.svg",
-          "dark": "media/dark/edit.svg"
-        }
+        "title": "添加备注(ADD)"
       },
       {
         "command": "folder-alias.delAlias",
-        "title": "删除备注",
-        "icon": {
-          "light": "media/light/edit.svg",
-          "dark": "media/dark/edit.svg"
-        }
+        "title": "删除备注(DELETE)"
       }
     ],
     "menus": {
@@ -44,7 +40,6 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
@@ -52,7 +47,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.83.0",
+    "@types/vscode": "^1.70.0",
     "@types/mocha": "^10.0.3",
     "@types/node": "18.x",
     "@typescript-eslint/eslint-plugin": "^6.9.0",

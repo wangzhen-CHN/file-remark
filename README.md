@@ -2,6 +2,8 @@
 
 ## vscode 文件备注插件 Remark on the file&folder
 
+备注数据存储在.vscode/file-remark.json中
+
 #### 使用方法：
 1. 安装插件
 2. 打开vscode资源管理
@@ -12,4 +14,4 @@
 
 #### 预览
 
-![预览](./preview.png)
+![预览](preview.png)
